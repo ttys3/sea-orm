@@ -433,8 +433,10 @@ pub(crate) fn unpack_table_ref(table_ref: &TableRef) -> DynIden {
     match table_ref {
         TableRef::Table(tbl) => SeaRc::clone(tbl),
         TableRef::SchemaTable(_, tbl) => SeaRc::clone(tbl),
+        TableRef::DatabaseTable(_, tbl) => SeaRc::clone(tbl),
         TableRef::TableAlias(tbl, _) => SeaRc::clone(tbl),
         TableRef::SchemaTableAlias(_, tbl, _) => SeaRc::clone(tbl),
+        TableRef::DatabaseTableAlias(_, tbl, _) => SeaRc::clone(tbl),
         TableRef::SubQuery(_, tbl) => SeaRc::clone(tbl),
     }
 }
